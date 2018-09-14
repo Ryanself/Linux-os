@@ -1,2 +1,2 @@
 # Linux-os
-learn and update on weekend/spare time.
+learn and update in weekend/spare time.
