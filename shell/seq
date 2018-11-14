@@ -1,0 +1,9 @@
+#!/bin/sh
+
+mul=1
+for i in `seq 1 10`
+do
+mul=`expr $mul + $i`
+done
+echo "10!=$mul"
+echo "hello world!"

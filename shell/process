@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "$0 string file!"
+#$0 means script itself.
+
+a=`type ls`
+[ "$?" -eq 0 ] && echo "$a----$?"
+#type tell u  the cmd type
+# $? means the return value about the last cmd(0 success)
+### ls is /bin/ls----0
+# 0 means [ "$?" -eq 0 ] return true

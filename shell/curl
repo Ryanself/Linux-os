@@ -1,0 +1,8 @@
+#! /bin/sh
+#test about curl
+curltest=$(curl -m 10 -o /dev/null -s -w %{http_code} $1)
+if [ "$curltest" -eq "200" ];then
+	echo "success!"
+elif [ "$curltest" -eq "000" ];then
+	echo "failed!"
+fi

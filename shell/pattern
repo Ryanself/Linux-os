@@ -1,0 +1,14 @@
+#! /bin/bash
+a='             /*1:z/z*t  wa23'
+echo "$a"
+b=${a#*:}
+echo "$b"
+c=${a##* }
+echo "$c"
+d=${a//z/=}
+echo "$d"
+
+# # min before  ## max before
+# % min after   %% max after
+# / exchange  the head should be #!/bin/bash  cause #!/bin/sh faild with (Bad substitution)
+#pattern match: can split string / path or sth. to compare.
