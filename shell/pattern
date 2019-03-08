@@ -1,8 +1,9 @@
-#! /bin/bash
+#! /bin/sh
 a='             /*1:z/z*t  wa23'
 echo "$a"
-b=${a#*:}
-echo "$b"
+#b=${a%:*}
+b=eval `${${a#*:}%t*}`
+echo "---$b"
 c=${a##* }
 echo "$c"
 d=${a//z/=}

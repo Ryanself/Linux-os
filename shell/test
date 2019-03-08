@@ -1,0 +1,9 @@
+#!/bin/sh
+
+hostapd_ctrl=
+echo "$hostapd_ctrl>>>"
+phy="phy1"
+ifname="wlan${phy#phy}"
+hostapd_ctrl="${hostapd_ctrl:-/var/run/hostapd/$ifname}"
+
+echo ">>>${hostapd_ctrl:+-H $hostapd_ctrl}<<< >>>$hostapd_ctrl"

@@ -1,0 +1,4 @@
+#!/bin/sh
+id=2
+macid=$(($id+2))
+echo ">>>id $id       macid  $macid >>>"

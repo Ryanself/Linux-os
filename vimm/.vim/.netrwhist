@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/robert/cc_clean/latest/chaos_calmer_15_05_1/build_dir/target-mipsel_mips-interAptiv_uClibc-0.9.33.2/dnsmasq-nodhcpv6/dnsmasq-2.73'
+let g:netrw_dirhist_2='/home/robert/cc_clean/release4.1.0/chaos_calmer_15_05_1/build_dir/target-mipsel_mips-interAptiv_uClibc-0.9.33.2/linux-siflower_sf16a18-fullmask/compat-wireless-2016-01-10/net/mac80211'
+let g:netrw_dirhist_3='/home/robert/cc_clean/gerrit_release4.1.0/chaos_calmer_15_05_1/package/siflower/bin/dnsmasq-ext-cfg'
+let g:netrw_dirhist_4='/home/robert/cc_clean/latest/chaos_calmer_15_05_1/build_dir/target-mipsel_mips-interAptiv_uClibc-0.9.33.2/netifd-2015-12-16'
+let g:netrw_dirhist_5='/home/robert/cc_clean/gerrit_release4.1.0/chaos_calmer_15_05_1/package/kernel/sf_smac/src'

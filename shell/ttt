@@ -1,0 +1,18 @@
+#!/bin/sh
+## $1 =filename.h  $2= filename.c
+cp $1 $2
+##删除{}之间内容
+#sed -i '/^{/,/^}/{/^#/!{/^\$/!d}}' $1
+sed -i '/^{/,/^}/d' $1
+##inline + ;
+sed -i '/^__INLINE/{s/$/;/g}' $1
+##删除inline
+sed -i 's/__INLINE //g' $1
+##删除define
+sed -i '/^#define/d' $2
+#需要手动 且函数之间没有空行
+sed -i '/^}/,/^__INLINE/{/^}/!{/^__INLINE/!d}}' $2
+##增加空行
+sed -i '/^__INLINE/i\ ' $2
+##删除inline
+sed -i 's/__INLINE //g' $2

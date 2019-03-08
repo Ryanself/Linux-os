@@ -1,0 +1,28 @@
+#!/bin/sh
+str1="wlan0"
+str2="wlan"
+testt() {
+	wdev="$1"
+	mode="$2"
+if [ $mode = "hostap"  ]; then
+	case $wdev in
+		wlan*)
+			echo "hostap  $wdev>>>>"
+			;;
+	esac
+elif [ $mode = "wpa"   ]; then
+	case $wdev in
+		rai*)
+			echo "wpa  $wdev>>>>"
+			;;
+	esac
+fi
+}
+
+testt wlan0 wpa
+
+testt rai0 wpa
+
+testt wlan1 hostap
+
+testt rai0 hostap
