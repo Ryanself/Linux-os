@@ -39,3 +39,8 @@ int main(){
 	      printf("no this vlaue!");
 	return 0;
 }
+/*
+ * TODO: acturally we shall use hash table, but so long time not recover datastructure,
+ * I have forgotten how to wirte with it.
+ * this .c need to be update.
+ * /
