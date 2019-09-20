@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 /**
+ * leetcode No.1
  *  * Note: The returned array must be malloced, assume caller calls free().
  *   */
 static int a[2010][3] = {0}; //we shal use list here.

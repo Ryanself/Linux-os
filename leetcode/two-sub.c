@@ -1,4 +1,5 @@
 /**
+ * leetcode No.2
  * 给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，
  * 并且它们的每个节点只能存储 一位 数字。
  * 如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。
@@ -29,17 +30,15 @@ struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2){
 	l4.val = 0;
 	for (l2; l2->val != 0;)
 	{
+		printf("%d l1 %d l2\n", l1->val, l2->val);
 		l3->val = l3->val + l2->val;
-		printf("%d l1 %d l3\n", l1->val, l3->val);
 		if(l3->val > 9)
 		{
 			l3->val -= 10;
 			if (l3->next)
 				l3->next->val ++;
 			else{
-				printf("%d\n", l4.val);
 				l4.val ++;
-				printf("%d\n", l4.val);
 				l3->next = &l4;
 				break;
 			}
