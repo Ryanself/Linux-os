@@ -1,0 +1,29 @@
+#!/bin/sh
+a=1
+b=2
+c=3
+d=2
+[ $a = 1 ] && {
+	echo "a =  1 "
+}
+
+[ $b = 1 ] && {
+	echo "b =  1 "
+}
+
+[ $b != 3 -a $c = 3 ] && {
+	echo "b =  3 c =3 "
+}
+[ "$b" = "$c" ] || {
+echo "zzzzzzzzz"
+}
+
+[ "$b" -eq "$d" ] && {
+echo "zzzzzzbdbdbdbdbdbdbzzz"
+}
+a="sfi0"
+case $a in
+	*0)
+		echo "zzzzzzzzaaaaaaassssssssszzzzzzz"
+		;;
+esac
