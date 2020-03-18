@@ -55,6 +55,11 @@ static char * intToRoman(int num){
 	if (NULL == roman)
 	      return NULL;
 	roman[0]='\0';//without this will casue error in leetcode.
+	/*
+	 * in this way we when the number is bigger than 3999,
+	 * we can just change the content of *rom and value of n.
+	 * but we need to use strncat instead of strcat.
+	 * */
 	char *rom = "**MDCLXVI";
 	for (; n < 4; n++){
 		if(num >= i) {
