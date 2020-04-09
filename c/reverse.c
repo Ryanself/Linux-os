@@ -17,6 +17,11 @@ static void printfN(struct node *node)
 		}
 }
 
+//head ->a
+//head->next ->b
+//b->next ->c
+//b->next = a
+//ba  c   这里可以迭代
 static struct node* reverse(struct node *head)
 {
 		struct node *a, *b, *c;
@@ -33,11 +38,6 @@ static struct node* reverse(struct node *head)
 				b->pNext = a;
 				a = b;
 		}
-		//head ->a
-		//head->next ->b
-		//b->next ->c
-		//b->next = a
-		//ba  c   这里可以迭代
 
 		c->pNext = a;
 		return c;
