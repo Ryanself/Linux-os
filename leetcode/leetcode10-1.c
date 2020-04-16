@@ -59,45 +59,70 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool isMatch(char * s, char * p)
+static bool isMatch(char * s, char * p)
 {
-        if(*p == '\0')
-              return (*s == '\0');
-
-        if(*s == '\0')
+        char *c = p;
+        while(*(c+2))
         {
-                while(*p)
-                {
-                        if(*(++p) == '*')
-                              p++;
-                        else
-                              return false;
-                }
-                return true;
+                if (*(c + 1) == '*' && (*c == *(c+2)))
+                      *(c+2) = '-';
+                c++;
         }
-
-        if (*s == *p || *p == '.')
+        while(*s)
         {
-                if(*(p+1) == '*')
-                      return (isMatch(s, p+2) || isMatch(s+1, p));// || isMatch(s+1, p+2));
+                switch (*p)
+                {
+                        case '\0':
+                                return false;
+                                break;
+                        case '.':
+                                if(*(p+1) != '*')
+                                      p++;
+                                s++;
+                                break;
+                        case '-':
+                                p++;
+                                break;
+                        default:
+                                if (*s == *p)
+                                {
+                                        if(*(p+1) != '*')
+                                              p++;
+                                        s++;
+                                } else
+                                {
+                                        if(*(p+1) != '*')
+                                        {
+                                                return false;
+                                        }
+                                        else
+                                              p+= 2;
+                                }
+                                break;
+                }
+        }
+        printf("--%s-\n", p);
+        while(*p)
+        {
+                if(*p == '-' || *(++p) == '*')
+                      p++;
                 else
-                      return isMatch(s+1, p+1);
-        } else if(*(p+1) == '*')
-              return isMatch(s, p+2);
-        else
-              return false;
-
+                {
+                        return false;
+                }
+        }
+        return true;
 }
 
 void main(void)
 {
-#if 1
-        char *s = "ab", *p = "a*b";
-        if(!isMatch(s, p))
+#if 0
+        char *s = "aa", *p = "a";
+        if(isMatch(s, p))
               printf("s is %s p is %s  fail\n", s, p);
 
-        char *s2 = "aab";
-        char *p2 = "a*b";
+        char *s2 = "aa";
+        char *p2 = "a*";
         if(!isMatch(s2, p2))
               printf("s2 is %s p2 is %s  fail\n", s2, p2);
 
@@ -106,23 +131,19 @@ void main(void)
         if(!isMatch(s3, p3))
               printf("s3 is %s p3 is %s  fail\n", s3, p3);
 
-#endif
- //       char s4[] = "aab";
-   //     char p4[] = "c*a*b";
-        char s4[] = "b";
-        char p4[] = "a*b";
+        char s4[] = "aab";
+        char p4[] = "c*a*b";
         if(!isMatch(s4, p4))
               printf("s4 is %s p4 is %s  fail\n", s4, p4);
 
-#if 1
         char s5[] = "mississippi";
         char p5[] = "mis*is*p*.";
         if(isMatch(s5, p5))
               printf("s5 is %s p5 is %s  fail\n", s5, p5);
+#endif
         char s6[] = "aab";
         char p6[] = "a*c*aab";
         if(!isMatch(s6, p6))
               printf("s6 is %s p6 is %s  fail\n", s6, p6);
-#endif
         return;
 }
